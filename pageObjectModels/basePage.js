@@ -4,9 +4,9 @@ export class BasePage {
         this.baseURL = 'https://automationexercise.com';
 
         // Navigation locators (using href)
-        this.homeLink = page.locator('a[href="/"]');
+        this.homeLink = page.locator('a[href="/"]').first();
         this.productsLink = page.locator('a[href="/products"]');
-        this.cartLink = page.locator('a[href="/view_cart"]');
+        this.cartLink = page.locator('a[href="/view_cart"]').first();
         this.loginLink = page.locator('a[href="/login"]');
         this.logoutLink = page.locator('a[href="/logout"]');
         this.deleteAccountLink = page.locator('a[href="/delete_account"]');
@@ -20,6 +20,7 @@ export class BasePage {
     }
 
     async navigate(path = '') {
+        await this.page.route('**fundingchoicesmessages.google.com**', route => route.abort());
         await this.page.goto(`${this.baseURL}${path}`);
     }
 
@@ -59,4 +60,5 @@ export class BasePage {
     async waitForPageLoad() {
         await this.page.waitForLoadState('networkidle');
     }
+
 }

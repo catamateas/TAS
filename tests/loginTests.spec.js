@@ -14,20 +14,20 @@ test.describe('Login Tests', () => {
     });
 
     test('@smoke @sanity Verify login page loads successfully', async () => {
-        expect(await loginPage.isLoginFormVisible()).toBeTruthy();
-        expect(await loginPage.isSignupFormVisible()).toBeTruthy();
+        await expect(loginPage.loginForm).toBeVisible();
+        await expect(loginPage.signupForm).toBeVisible();
     });
 
     test('@regression Verify login form elements are visible', async () => {
-        expect(await loginPage.loginEmail.isVisible()).toBeTruthy();
-        expect(await loginPage.loginPassword.isVisible()).toBeTruthy();
-        expect(await loginPage.loginButton.isVisible()).toBeTruthy();
+        await expect(loginPage.loginEmail).toBeVisible();
+        await expect(loginPage.loginPassword).toBeVisible();
+        await expect(loginPage.loginButton).toBeVisible();
     });
 
     test('@regression Verify signup form elements are visible', async () => {
-        expect(await loginPage.signupName.isVisible()).toBeTruthy();
-        expect(await loginPage.signupEmail.isVisible()).toBeTruthy();
-        expect(await loginPage.signupButton.isVisible()).toBeTruthy();
+        await expect(loginPage.signupName).toBeVisible();
+        await expect(loginPage.signupEmail).toBeVisible();
+        await expect(loginPage.signupButton).toBeVisible();
     });
 
     test('@regression Login with invalid credentials', async ({ page }) => {

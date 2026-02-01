@@ -49,6 +49,7 @@ export class LoginPage extends BasePage {
     }
 
     async goToLoginPage() {
+        await this.page.route('**fundingchoicesmessages.google.com**', route => route.abort());
         await this.navigate('/login');
     }
 
@@ -62,14 +63,6 @@ export class LoginPage extends BasePage {
         await this.signupName.fill(name);
         await this.signupEmail.fill(email);
         await this.signupButton.click();
-    }
-
-    async isLoginFormVisible() {
-        return await this.loginForm.isVisible();
-    }
-
-    async isSignupFormVisible() {
-        return await this.signupForm.isVisible();
     }
 
     async fillAccountInformation(userData) {

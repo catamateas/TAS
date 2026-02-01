@@ -29,10 +29,6 @@ export class CartPage extends BasePage {
         await this.navigate('/view_cart');
     }
 
-    async isCartTableVisible() {
-        return await this.cartInfoTable.isVisible();
-    }
-
     async getCartProductCount() {
         return await this.productRows.count();
     }
@@ -59,10 +55,6 @@ export class CartPage extends BasePage {
 
     async removeProductById(productId) {
         await this.page.locator(`a[data-product-id="${productId}"]`).click();
-    }
-
-    async isCartEmpty() {
-        return await this.emptyCartMessage.isVisible();
     }
 
     async proceedToCheckout() {

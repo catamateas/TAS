@@ -28,16 +28,13 @@ export class ProductsPage extends BasePage {
     }
 
     async goToProductsPage() {
+        await this.page.route('**fundingchoicesmessages.google.com**', route => route.abort());
         await this.navigate('/products');
     }
 
     async searchProduct(productName) {
         await this.searchInput.fill(productName);
         await this.searchButton.click();
-    }
-
-    async isFeaturedItemsVisible() {
-        return await this.featuredItems.isVisible();
     }
 
     async getProductCount() {
@@ -69,10 +66,6 @@ export class ProductsPage extends BasePage {
 
     async clickViewCart() {
         await this.viewCartLink.click();
-    }
-
-    async isCartModalVisible() {
-        return await this.cartModal.isVisible();
     }
 
     async getProductNameByIndex(index) {

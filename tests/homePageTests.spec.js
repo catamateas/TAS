@@ -14,22 +14,22 @@ test.describe('Home Page Tests', () => {
     });
 
     test('@smoke Verify logo is visible', async () => {
-        expect(await homePage.isLogoVisible()).toBeTruthy();
+        await expect(homePage.logo).toBeVisible();
     });
 
     test('@sanity Verify carousel is visible', async () => {
-        expect(await homePage.isCarouselVisible()).toBeTruthy();
+        await expect(homePage.carouselInner).toBeVisible();
     });
 
     test('@regression Verify featured items section is visible', async () => {
-        expect(await homePage.isFeaturedItemsVisible()).toBeTruthy();
+        await expect(homePage.featuredItems).toBeVisible();
     });
 
     test('@regression Verify navigation links are visible', async () => {
-        expect(await homePage.homeLink.isVisible()).toBeTruthy();
-        expect(await homePage.productsLink.isVisible()).toBeTruthy();
-        expect(await homePage.cartLink.isVisible()).toBeTruthy();
-        expect(await homePage.loginLink.isVisible()).toBeTruthy();
+        await expect(homePage.homeLink).toBeVisible();
+        await expect(homePage.productsLink).toBeVisible();
+        await expect(homePage.cartLink).toBeVisible();
+        await expect(homePage.loginLink).toBeVisible();
     });
 
     test('@regression Verify carousel has multiple items', async () => {

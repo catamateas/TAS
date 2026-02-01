@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:automationexercise.com)"
+      "WebFetch(domain:automationexercise.com)",
+      "Bash(tree:*)"
     ]
   }
 }

@@ -8,7 +8,7 @@ export class HomePage extends BasePage {
         this.logo = page.locator('img[alt="Website for automation practice"]');
 
         // Carousel Locators
-        this.carouselInner = page.locator('.carousel-inner');
+        this.carouselInner = page.locator('.carousel-inner').first();
         this.carouselItems = page.locator('.carousel-inner .item');
         this.carouselActiveItem = page.locator('.carousel-inner .item.active');
 
@@ -24,6 +24,7 @@ export class HomePage extends BasePage {
     }
 
     async goToHomePage() {
+        await this.page.route('**fundingchoicesmessages.google.com**', route => route.abort());
         await this.navigate('/');
     }
 

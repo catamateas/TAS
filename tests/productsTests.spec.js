@@ -13,7 +13,7 @@ test.describe('Products Tests', () => {
     });
 
     test('@smoke @sanity Verify products page loads successfully', async () => {
-        expect(await productsPage.isFeaturedItemsVisible()).toBeTruthy();
+        await expect(productsPage.featuredItems).toBeVisible();
     });
 
     test('@sanity Verify products list is visible', async () => {
@@ -35,20 +35,20 @@ test.describe('Products Tests', () => {
 
     test('@smoke Add product to cart', async () => {
         await productsPage.addProductToCartByIndex(0);
-        expect(await productsPage.isCartModalVisible()).toBeTruthy();
+        await expect(productsPage.cartModal).toBeVisible();
     });
 
     test('@regression Add product to cart and continue shopping', async () => {
         await productsPage.addProductToCartByIndex(0);
-        expect(await productsPage.isCartModalVisible()).toBeTruthy();
+        await expect(productsPage.cartModal).toBeVisible();
         await productsPage.clickContinueShopping();
-        expect(await productsPage.isFeaturedItemsVisible()).toBeTruthy();
+        await expect(productsPage.featuredItems).toBeVisible();
     });
 
     test('@regression Add product to cart and view cart', async () => {
         await productsPage.addProductToCartByIndex(0);
         await productsPage.clickViewCart();
-        expect(await cartPage.isCartTableVisible()).toBeTruthy();
+        await expect(cartPage.cartInfoTable).toBeVisible();
         const cartProductCount = await cartPage.getCartProductCount();
         expect(cartProductCount).toBe(1);
     });
