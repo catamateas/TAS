@@ -1,0 +1,35 @@
+{
+  "name": "tas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:homepage": "npx playwright test tests/homePageTests.spec.js",
+    "test:login": "npx playwright test tests/loginTests.spec.js",
+    "test:products": "npx playwright test tests/productsTests.spec.js",
+    "test:regression": "npx playwright test --grep @regression",
+    "test:sanity": "npx playwright test --grep @sanity",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:api": "npx playwright test --grep @api",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catamateas/TAS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catamateas/TAS/issues"
+  },
+  "homepage": "https://github.com/catamateas/TAS#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.1",
+    "@types/node": "^25.1.0"
+  }
+}
