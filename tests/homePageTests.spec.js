@@ -9,6 +9,10 @@ test.describe('Home Page Tests', () => {
         await homePage.goToHomePage();
     });
 
+    test.afterAll(async ({ page }) => {
+        await page.close();
+    });
+
     test('@smoke @sanity Verify home page loads successfully', async ({ page }) => {
         await expect(page).toHaveTitle(/Automation Exercise/);
     });

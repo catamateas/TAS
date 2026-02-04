@@ -12,6 +12,10 @@ test.describe('Products Tests', () => {
         await productsPage.goToProductsPage();
     });
 
+    test.afterAll(async ({ page }) => {
+        await page.close();
+    });
+
     test('@smoke @sanity Verify products page loads successfully', async () => {
         await expect(productsPage.featuredItems).toBeVisible();
     });

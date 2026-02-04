@@ -13,6 +13,10 @@ test.describe('Login Tests', () => {
         await loginPage.goToLoginPage();
     });
 
+    test.afterAll(async ({ page }) => {
+        await page.close();
+    })
+
     test('@smoke @sanity Verify login page loads successfully', async () => {
         await expect(loginPage.loginForm).toBeVisible();
         await expect(loginPage.signupForm).toBeVisible();
